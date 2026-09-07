@@ -42,6 +42,8 @@ class UserCommands:
                 return await self.suggest_command(event)
             elif parameter == 'help':
                 return await self.help_command(event)
+            elif parameter in ('src', 'source'):
+                return await self.src_command(event)
         
         await event.reply(self.ctx.START_MESSAGE, buttons=self.ctx.START_BUTTONS, link_preview=False, parse_mode='html')
         raise StopPropagation
@@ -202,7 +204,7 @@ class UserCommands:
     @check_banned
     @update_user_info
     async def id_command(self, event: events.NewMessage.Event):
-        """Owner command to get IDs of custom emojis sent in the message."""
+        """User command to get IDs of custom emojis sent in the message."""
         if not getattr(event.message, 'entities', None):
             await event.reply("No custom emojis found in the message.")
             raise StopPropagation
@@ -218,4 +220,25 @@ class UserCommands:
             raise StopPropagation
             
         await event.reply("\n".join(emoji_list), parse_mode='html')
+        raise StopPropagation
+
+    @check_banned
+    @update_user_info
+    async def src_command(self, event: events.NewMessage.Event):
+        """Shows the github link for the source code of the bot and its modules."""
+        message = (
+            "Yes, the bot is open source for the community!\n\n"
+            "<tg-emoji emoji-id='5933540612694347912'>🔗</tg-emoji> If you are a developer and want to contribute or host your own bot, you can find the source code here:\n"
+            f"<blockquote>{SOURCE_CODE_LINK}</blockquote>\n\n"
+            "And if you are only looking for the core conversion modules for your own project:\n"
+            f"• <b><a href='{TGS_TO_WEBP_MODULE_LINK}'>Tgs-to-Webp</a></b>: Converts <code>.tgs</code> files to Webp with various tweakable settings.\n"
+            f"• <b><a href='{VIDEO_TO_WEBP_MODULE_LINK}'>Video-to-Webp</a></b>: Converts video files (like <code>.webm/.mp4/.mkv/.mov/.gif</code>, etc.) to Webp with various tweakable settings."
+            "\n\n"
+            "Liked the bot? Mind dropping us a quick star on GitHub? <tg-emoji emoji-id='5238181859828974653'>🙏</tg-emoji>"
+        )
+        buttons = [
+            [Button.url("Bot Source Code", SOURCE_CODE_LINK, style='primary')],
+            [Button.url("Tgs-to-Webp", TGS_TO_WEBP_MODULE_LINK, style=None), Button.url("Video-to-Webp", VIDEO_TO_WEBP_MODULE_LINK, style=None)]
+        ]
+        await event.reply(message, buttons=buttons, parse_mode='html', link_preview=False)
         raise StopPropagation

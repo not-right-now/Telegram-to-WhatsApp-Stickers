@@ -115,6 +115,7 @@ class BotHandlers:
         self.ctx.client.add_event_handler(self.user.contact_command, events.NewMessage(pattern='/contact', func=lambda e: e.is_private))
         self.ctx.client.add_event_handler(self.user.suggest_command, events.NewMessage(pattern='/suggest', func=lambda e: e.is_private))
         self.ctx.client.add_event_handler(self.user.id_command, events.NewMessage(pattern=r'/id(?:$|\s.*)', func=lambda e: e.is_private))
+        self.ctx.client.add_event_handler(self.user.src_command, events.NewMessage(pattern=r'/(?:src|source)(?:$|\s.*)', func=lambda e: e.is_private))
 
         # Group Handlers
         # self.ctx.client.add_event_handler(self.user.suggest_command, events.NewMessage(pattern='/suggest@'+ username_regex + r'(?:$|\s.*)', func=lambda e: not e.is_private))

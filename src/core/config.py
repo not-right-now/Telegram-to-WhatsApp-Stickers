@@ -27,6 +27,11 @@ PREMIUM_SAVINGS_PERCENT = math.floor((1 - (PREMIUM_PRICE_YEARLY / (PREMIUM_PRICE
 PREMIUM_STARS_MONTHLY = 20   # Approximate equivalent of $0.50
 PREMIUM_STARS_YEARLY = 200   # Approximate equivalent of $5.00
 
+# ------ Links ------
+SOURCE_CODE_LINK = "https://github.com/not-right-now/Telegram-to-WhatsApp-Stickers"
+TGS_TO_WEBP_MODULE_LINK = "https://github.com/not-right-now/tgs_to_webp"
+VIDEO_TO_WEBP_MODULE_LINK = "https://github.com/not-right-now/video_to_webp"
+
 # ------ Conversion Limits ------
 DAILY_LIMIT_REGULAR = 10 # (< 0 for unlimited)
 DAILY_LIMIT_PREMIUM = 100 # (< 0 for unlimited)
