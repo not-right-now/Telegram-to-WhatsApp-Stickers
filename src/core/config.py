@@ -402,6 +402,7 @@ COMMANDS_MESSAGE = """
 • /commands - <tg-emoji emoji-id="6028435952299413210">⚙️</tg-emoji> Shows a list of Available Commands
 • /suggest - <tg-emoji emoji-id="6037533152593842454">✨</tg-emoji> Get recommendations for popular packs.
 • /contact - <tg-emoji emoji-id="6037421444789440735">📩</tg-emoji> Send a message to the bot administrators.
+• /src - <tg-emoji emoji-id="5940433880585605708">⚙️</tg-emoji> Get the bot's source code.
 
 Just send any of these commands to get started!
 """
