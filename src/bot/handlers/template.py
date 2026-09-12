@@ -62,9 +62,9 @@ class TemplateHelper:
         
         if list_type == 'daily':
             title = "<tg-emoji emoji-id='5251537301154062376'>📅</tg-emoji> <b>Top 10 Popular Packs (Daily)</b>"
-            button = [Button.inline("View All-Time Top 50", b"suggest_all_time", style="primary", icon=5789828777882162072)]
+            button = [Button.inline("View All-Time Top 50", b"suggest_all_time", style="primary", icon=5244590801438138696)]
         else: # all_time
-            title = "<tg-emoji emoji-id='5789828777882162072'>🏆</tg-emoji> <b>Top 50 Popular Packs (All-Time)</b>"
+            title = "<tg-emoji emoji-id='5244590801438138696'>🏆</tg-emoji> <b>Top 50 Popular Packs (All-Time)</b>"
             button = [Button.inline("View Daily Top 10", b"suggest_daily", style="primary", icon=5251537301154062376)]
         
         if not packs:
